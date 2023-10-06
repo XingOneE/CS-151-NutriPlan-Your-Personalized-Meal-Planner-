@@ -62,9 +62,9 @@ Goal: the end goal that the user sets
 (Optional) User management: manage different meal plans for different users
 
 5. When using the Meal Planner program, the user will first go to OptionMenu. Here they can select a variety of options:
-Create meal plan
-Get meal plan for the day
-Nutritional Information
-View/Edit Meal Plan
-Set the Goal for the meal plan  
+Create meal plan,
+Get meal plan for the day,
+Nutritional Information,
+View/Edit Meal Plan,
+Set the Goal for the meal plan,   
 Exit
