@@ -25,36 +25,36 @@ Recommend the user certain food/food plans based on their preferences
 
 
 5. Classes/methods we need for our program
-Main: 
+a. Main: 
 MealPlanner: the class that holds all other classes
 
 
-OptionsMenu: the starting page to select the certain parts
+b. OptionsMenu: the starting page to select the certain parts
 FileReader: used to read a file created to keep track of the user’s meal plan. New plans can be created and written and pre-existing plans can be read/deleted.
 readFile()
 SaveFile()
 deleteFile()
 
 
-NutritionCalculator: determine the nutrition intake
+c. NutritionCalculator: determine the nutrition intake
 calculateSugar()
 calculateSodium()
 calculateFiber()
 calculateFat()
 
-BudgetPlan: manages the amount of money implemented for a user’s meal plan
+d. BudgetPlan: manages the amount of money implemented for a user’s meal plan
 addBudget
 distributeBudget()
 doesExceedBudget()
 
-Calendar: the space to hold the meal plans
+e. Calendar: the space to hold the meal plans
 createPlan()
 deletePlan()
 addCategory()
 deleteCategory()
 editCategory()
 
-Plan (should be inherited)
+f. Plan (should be inherited)
 DayPlan
 WeekPlan
 Goal: the end goal that the user sets
