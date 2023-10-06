@@ -24,6 +24,7 @@ Recommend the user certain food/food plans based on their preferences
 
 
 5. Classes/methods we need for our program
+
 a. Main: 
 MealPlanner: the class that holds all other classes
 
@@ -59,7 +60,7 @@ WeekPlan
 Goal: the end goal that the user sets
 (Optional) User management: manage different meal plans for different users
 
-5. When using the Meal Planner program, the user will first go to OptionMenu. Here they can select a variety of options:
+6. When using the Meal Planner program, the user will first go to OptionMenu. Here they can select a variety of options:
 Create meal plan,
 Get meal plan for the day,
 Nutritional Information,
