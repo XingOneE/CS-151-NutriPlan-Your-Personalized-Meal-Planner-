@@ -23,7 +23,7 @@ Recommend the user certain food/food plans based on their preferences
 
 
 
-5. Classes/methods we need for our program
+5. Classes/methods we need for our program: 
 
 a. Main: 
 MealPlanner: the class that holds all other classes
