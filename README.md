@@ -10,10 +10,9 @@ Xing Yu Luo
 2. Solution: Our program will allow the user to plan and customize their meals for a specified time of day. They will be able to create time sections such as for breakfast or lunch and add foods to those sections. They can calculate the calories and nutrition from the information they submit. The user may also implement a budget for their meal plan, and the program will tell the user if their meal plan at a given time exceeds that budget.
 
 3. Assumptions: 
-The proposal assumes the user has the nutritional information and the cost for the food that they eat.
-It assumes that the user is capable of inputting and managing the data for their meal plan.
-It assumes that the program will have features for saving and editing meal plans over time.
-For Team members only:
+a.The proposal assumes the user has the nutritional information and the cost for the food that they eat.
+b.It assumes that the user is capable of inputting and managing the data for their meal plan.
+c.It assumes that the program will have features for saving and editing meal plans over time.
 
 4. The Features of our Meal Planner program:
 Organize and customize meals through the week/month
