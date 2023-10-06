@@ -1,5 +1,4 @@
 NutriPlan: Your Personalized Meal Planner
-Team 5
 
 Members:
 Kishitij Tyagi
