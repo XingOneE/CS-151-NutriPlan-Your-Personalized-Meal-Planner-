@@ -5,6 +5,8 @@ Kishitij Tyagi
 Vincent Nguyen
 Xing Yu Luo
 
+Team 5 
+
 1. Problem Statement: People are becoming more health-conscious and want to plan out their diet in a given week/month.
 
 2. Solution: Our program will allow the user to plan and customize their meals for a specified time of day. They will be able to create time sections such as for breakfast or lunch and add foods to those sections. They can calculate the calories and nutrition from the information they submit. The user may also implement a budget for their meal plan, and the program will tell the user if their meal plan at a given time exceeds that budget.
