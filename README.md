@@ -4,6 +4,7 @@ Members:
 Kishitij Tyagi
 Vincent Nguyen
 Xing Yu Luo
+Aaron Nguyen
 
 Team 5 
 
