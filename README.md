@@ -70,3 +70,15 @@ Nutritional Information,
 View/Edit Meal Plan,
 Set the Goal for the meal plan,   
 Exit
+
+7. Programming Language:
+
+Java: The primary language for developing the NutriPlan meal planner application.
+
+Front-end Interface (Optional):
+
+Java Swing: For creating a desktop-based user interface using Java.
+JavaFX: Another option for building Java desktop applications with more modern features.
+Database (Optional):
+
+If needed, Java provides JDBC for database connectivity with databases like MySQL or PostgreSQL. 
