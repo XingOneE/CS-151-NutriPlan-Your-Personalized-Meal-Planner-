@@ -71,7 +71,7 @@ View/Edit Meal Plan,
 Set the Goal for the meal plan,   
 Exit
 
-7. Programming Language:
+7. Tech-stack: Programming Language
 
 Java: The primary language for developing the NutriPlan meal planner application.
 
