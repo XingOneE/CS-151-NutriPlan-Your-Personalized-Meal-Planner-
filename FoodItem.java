@@ -18,7 +18,7 @@ public class FoodItem {
 		calories = 0;
 		carbs = 0;
 		protein = 0;
-		fat = 1;
+		fat = 0;
 		sugar = 0;
 		
 	}
@@ -104,6 +104,15 @@ public class FoodItem {
 		return sugar;
 	}
 	
+	
+	
+	public void readFoodInfo()
+	{
+		System.out.println("Reading current meal plan");
+		
+		
+		
+	}
 	
 	
 	public static void main(String[] args) {

@@ -70,6 +70,9 @@ public class PersonalInfo {
 		boolean room = true;
 		int i = 0;
 		
+		
+		
+		
 		while(room == true)
 		{
 			

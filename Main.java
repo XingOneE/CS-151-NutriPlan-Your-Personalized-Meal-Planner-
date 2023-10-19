@@ -1,22 +1,27 @@
 package package_a;
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
 
 public class Main {
 
 	
 	
-	public void optionMenu()
+	
+	
+	
+	public static void main(String[] args)  throws FileNotFoundException 
 	{
-		
-	}
-	
-	
-	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);		//used for all inputs
+		
 		int option = 0;
+		
+		Nutriplan np = new Nutriplan();
+		
+		
+		
 		
 		while(option != 5)													//mock-up menu
 		{
@@ -35,26 +40,34 @@ public class Main {
 			{
 				case 1:
 				{
-					System.out.println("Creating meal plan");
+					System.out.println("Creating new meal plan");
+					np.newPersonalInfo(scan);
+					np.mainMenu(scan);
+					
 					option = 5;
 					break;
 				}
 				case 2:
 				{
 					System.out.println("Reading current meal plan");
-					option = 5;
+					np.mainMenu(scan);
+					
+					//option = 5;
 					break;
 				}
 				case 3:
 				{
 					System.out.println("Edit current meal plan");
+					np.mainMenu(scan);
+					
 					option = 5;
 					break;
 				}
 				case 4:
 				{
 					System.out.println("Credits");
-					option = 5;
+					np.credits();
+					
 					break;
 				}
 				case 5:
