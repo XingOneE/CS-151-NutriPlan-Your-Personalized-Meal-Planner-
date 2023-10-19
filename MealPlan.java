@@ -3,47 +3,36 @@ package package_a;
 public class MealPlan {
     private FoodItem[] foods;
     private int foodCapacity = 10;
-    private int foodCount;
-    private String dayOfWeek;
-
-    public MealPlan(String dayOfWeek) {
+    
+    public MealPlan() {
         foods = new FoodItem[foodCapacity];
-        foodCount = 0;
-        this.dayOfWeek = dayOfWeek;
-    }
-
-    public String getDayOfWeek() {
-        return dayOfWeek;
     }
 
     // Add a food item to the meal plan
     public void addFoodItem(FoodItem food) {
-        if (foodCount < foodCapacity) {
-            foods[foodCount] = food;
-            foodCount++;
-        } else {
-            System.out.println("Meal plan is full. Cannot add more food items.");
-        }
+        // Implement the logic to add a food item to the foods array.
+        // You need to manage the food items added by the user.
     }
 
     // Remove a food item from the meal plan
     public void removeFoodItem(int index) {
-        if (index >= 0 && index < foodCount) {
-            for (int i = index; i < foodCount - 1; i++) {
-                foods[i] = foods[i + 1];
-            }
-            foods[foodCount - 1] = null; // Clear the last element
-            foodCount--;
-        } else {
-            System.out.println("Invalid food item index.");
-        }
+        // Implement the logic to remove a food item from the foods array.
+        // You need to manage the food items added by the user.
     }
 
     // Display the contents of the meal plan
     public void displayMealPlan() {
-        System.out.println("Meal Plan for " + dayOfWeek + ":");
-        for (int i = 0; i < foodCount; i++) {
-            System.out.println((i + 1) + ". " + foods[i].getName());
+        // Implement the logic to display the meal plan's contents.
+    }
+
+    public static void main(String[] args) {
+        MealPlan[] weeklyMealPlans = new MealPlan[7]; // Array to hold seven MealPlan objects, one for each day
+
+        // Create MealPlan objects for each day of the week
+        for (int i = 0; i < 7; i++) {
+            weeklyMealPlans[i] = new MealPlan();
         }
+
+        // You can add food items to the meal plans, remove them, and display the plans here.
     }
 }
