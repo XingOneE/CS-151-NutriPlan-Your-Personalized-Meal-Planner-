@@ -1,12 +1,42 @@
 package package_a;
 
 public class MealPlan {
+	
     private FoodItem[] foods;
     private int foodCapacity = 10;
 
-    public MealPlan() {
+    public MealPlan() 
+    {
         foods = new FoodItem[foodCapacity];
+        
+        for(int i = 0; i < foodCapacity; i++)
+        {
+        	foods[i] = new FoodItem();
+        }
+        
     }
+    
+    public void setFoods(FoodItem[] food)
+	{
+		foods = food;
+	}
+	
+	public void setFoodCapacity(int fc)
+	{
+		foodCapacity = fc;
+	}
+	
+	
+	public FoodItem[] getFoods()
+	{
+		return foods;
+	}
+	
+	public int getFoodCapacity()
+	{
+		return foodCapacity;
+	}
+    
 
     // Add a food item to the meal plan
     public void addFoodItem(FoodItem food) {

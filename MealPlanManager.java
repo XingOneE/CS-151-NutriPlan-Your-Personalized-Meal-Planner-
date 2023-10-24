@@ -4,6 +4,27 @@ package package_a;
 public class MealPlanManager {
 
     private MealPlan[] weeklyMealPlans;
+    
+    
+    
+    
+    
+    public void setMealPlan(MealPlan[] m)
+    {
+    	weeklyMealPlans = m;
+    }
+    
+    public MealPlan[] getMealPlan()
+    {
+    	return weeklyMealPlans;
+    }
+    
+    
+    
+    
+    
+    
+    
 
     public MealPlanManager() {
         weeklyMealPlans = new MealPlan[7];
@@ -38,17 +59,16 @@ public class MealPlanManager {
     }
 
     public static void main(String[] args) {
-        MealPlanManager manager = new MealPlanManager();
+        //MealPlanManager manager = new MealPlanManager();
 
         // Adding and displaying food items for the first day
         // manager.addFoodItem(0, new FoodItem("Chicken", 10.0, 250, 0, 30, 10, 0));
         // manager.addFoodItem(0, new FoodItem("Rice", 2.0, 200, 45, 5, 1, 0);
-        manager.displayMealPlan(0);
+        //manager.displayMealPlan(0);
 
         // Removing a food item from the first day
-        manager.removeFoodItem(0, 0);
-        manager.displayMealPlan(0);
+        //manager.removeFoodItem(0, 0);
+        //manager.displayMealPlan(0);
     }
 }
     
-
