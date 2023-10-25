@@ -2,17 +2,15 @@ package package_a;
 
 public class FoodItem {
 
-	
-	private String name = "null";
-	private double price = 0.0;
-	private int calories = 0;
-	private int carbs = 0;
-	private int protein = 0;
-	private int fat = 0;
-	private int sugar = 0;
-	
-	FoodItem()
-	{
+	private String name;
+	private double price;
+	private double calories;
+	private double carbs;
+	private double protein;
+	private double fat;
+	private double sugar;
+
+	FoodItem() {
 		name = "null";
 		price = 0.0;
 		calories = 0;
@@ -20,92 +18,90 @@ public class FoodItem {
 		protein = 0;
 		fat = 0;
 		sugar = 0;
-		
 	}
-	
-	FoodItem(String n, double p)
-	{
+
+	FoodItem(String name, double price, double calories, double carbs, double protein, double fat, double sugar) {
+
+		this.name = name;
+		this.price = price;
+		this.calories = calories;
+		this.carbs = carbs;
+		this.protein = protein;
+		this.fat = fat;
+		this.sugar = sugar;
+	}
+
+	FoodItem(String n, double p) {
 		super();
 		name = n;
 		price = p;
+		price = 0.0;
+		calories = 0;
+		carbs = 0;
+		protein = 0;
+		fat = 0;
+		sugar = 0;
 	}
-	
-	
-	//setters:
-	public void setName(String n)
-	{
+
+	// setters:
+	public void setName(String n) {
 		name = n;
 	}
-	
-	public void setPrice(double p)
-	{
+
+	public void setPrice(double p) {
 		price = p;
 	}
-	
-	public void setCalories(int c)
-	{
+
+	public void setCalories(int c) {
 		calories = c;
 	}
-	
-	public void setCarbs(int c)
-	{
+
+	public void setCarbs(int c) {
 		carbs = c;
 	}
-	
-	public void setProtein(int p)
-	{
+
+	public void setProtein(int p) {
 		protein = p;
 	}
-	
-	public void setFat(int f)
-	{
+
+	public void setFat(int f) {
 		fat = f;
 	}
-	
-	public void setSugar(int s)
-	{
+
+	public void setSugar(int s) {
 		sugar = s;
 	}
-	
-	//getters:
-	
-	public String getName()
-	{
+
+	// getters:
+
+	public String getName() {
 		return name;
 	}
-	
-	public double getPrice()
-	{
+
+	public double getPrice() {
 		return price;
 	}
-	
-	public int getCalories()
-	{
+
+	public double getCalories() {
 		return calories;
 	}
 
-	public int getCarbs()
-	{
+	public double getCarbs() {
 		return carbs;
 	}
-	
-	public int getProtein()
-	{
+
+	public double getProtein() {
 		return protein;
 	}
-	
-	public int getFat()
-	{
+
+	public double getFat() {
 		return fat;
 	}
-	
-	public int getSugar()
-	{
+
+	public double getSugar() {
 		return sugar;
 	}
-	
-	
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
