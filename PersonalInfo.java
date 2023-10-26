@@ -37,7 +37,7 @@ public class PersonalInfo {
 		height = h;
 	}
 	
-	public void setWright(int w)
+	public void setWeight(int w)
 	{
 		weight = w;
 	}

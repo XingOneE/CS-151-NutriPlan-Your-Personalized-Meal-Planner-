@@ -3,7 +3,7 @@ package package_a;
 public class FoodItem {
 
 	
-	private String name = "";
+	private String name = "null";
 	private double price = 0.0;
 	private int calories = 0;
 	private int carbs = 0;
@@ -14,7 +14,7 @@ public class FoodItem {
 	FoodItem()
 	{
 		name = "null";
-		price = 1.0;
+		price = 0.0;
 		calories = 0;
 		carbs = 0;
 		protein = 0;
@@ -104,15 +104,6 @@ public class FoodItem {
 		return sugar;
 	}
 	
-	
-	
-	public void readFoodInfo()
-	{
-		System.out.println("Reading current meal plan");
-		
-		
-		
-	}
 	
 	
 	public static void main(String[] args) {

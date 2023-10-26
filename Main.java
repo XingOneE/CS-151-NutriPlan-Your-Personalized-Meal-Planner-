@@ -16,9 +16,11 @@ public class Main {
 
 		Scanner scan = new Scanner(System.in);		//used for all inputs
 		
+		String directory = System.getProperty("user.dir");
 		int option = 0;
 		
 		Nutriplan np = new Nutriplan();
+		DataManager dm = new DataManager();
 		
 		
 		
@@ -42,7 +44,8 @@ public class Main {
 				{
 					System.out.println("Creating new meal plan");
 					np.newPersonalInfo(scan);
-					np.mainMenu(scan);
+					
+					np.mainMenu(scan, np);
 					
 					option = 5;
 					break;
@@ -50,7 +53,13 @@ public class Main {
 				case 2:
 				{
 					System.out.println("Reading current meal plan");
-					np.mainMenu(scan);
+					dm.loadFile(directory + "\\NutriplanData", np);
+					
+					for(int t = 0; t < 7; t++)
+					{
+						np.getMealPlanManager().displayMealPlan(t);
+					}
+					
 					
 					//option = 5;
 					break;
@@ -58,7 +67,8 @@ public class Main {
 				case 3:
 				{
 					System.out.println("Edit current meal plan");
-					np.mainMenu(scan);
+					dm.loadFile(directory + "\\NutriplanData", np);
+					np.mainMenu(scan, np);
 					
 					option = 5;
 					break;

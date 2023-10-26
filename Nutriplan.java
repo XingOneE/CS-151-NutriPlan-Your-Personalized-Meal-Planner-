@@ -5,14 +5,16 @@ import java.util.Scanner;
 public class Nutriplan {
 
 	private PersonalInfo info;
-	//MealPlanManager manager;
+	MealPlanManager manager;
 	
 	
 	Nutriplan()
 	{
+		PersonalInfo newInfo = new PersonalInfo();
+		MealPlanManager newManager = new MealPlanManager();
 		
-		
-		
+		setPersonalInfo(newInfo);
+		setMealPlanManager(newManager);
 		
 	}
 	
@@ -27,12 +29,22 @@ public class Nutriplan {
 		info = pi;
 	}
 	
+	public void setMealPlanManager(MealPlanManager m)
+	{
+		manager = m;
+	}
+	
+	
 	
 	public PersonalInfo getPersonalInfo()
 	{
 		return info;
 	}
 	
+	public MealPlanManager getMealPlanManager()
+	{
+		return manager;
+	}
 	
 	public void newPersonalInfo(Scanner scan)
 	{
@@ -57,7 +69,7 @@ public class Nutriplan {
 		
 	}
 	
-	public void mainMenu(Scanner scan)
+	public void mainMenu(Scanner scan, Nutriplan np)
 	{
 		
 		
