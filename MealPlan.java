@@ -39,9 +39,12 @@ public class MealPlan {
     
 
     // Add a food item to the meal plan
-    public void addFoodItem(FoodItem food) {
-        for (int i = 0; i < foodCapacity; i++) {
-            if (foods[i] == null) {
+    public void addFoodItem(FoodItem food) 
+    {
+        for (int i = 0; i < foodCapacity; i++) 
+        {
+            if (foods[i].getName() == "null") 
+            {
                 foods[i] = food;
                 System.out.println("Added " + food.getName() + " to the meal plan.");
                 return;
@@ -51,12 +54,18 @@ public class MealPlan {
     }
 
     // Remove a food item from the meal plan
-    public void removeFoodItem(int index) {
-        if (index >= 0 && index < foodCapacity && foods[index] != null) {
+    public void removeFoodItem(int index) 
+    {
+        if (index >= 0 && index < foodCapacity && foods[index] != null) 
+        {
+        	FoodItem empty = new FoodItem();
+        	
             String removedFoodName = foods[index].getName();
-            foods[index] = null;
+            foods[index] = empty;
             System.out.println("Removed " + removedFoodName + " from the meal plan.");
-        } else {
+        } 
+        else 
+        {
             System.out.println("Invalid food item index or no food item at the specified index.");
         }
     }
@@ -64,9 +73,15 @@ public class MealPlan {
     // Display the contents of the meal plan
     public void displayMealPlan() {
         System.out.println("Meal Plan:");
-        for (int i = 0; i < foodCapacity; i++) {
-            if (foods[i] != null) {
+        for (int i = 0; i < foodCapacity; i++)
+        {
+            if (foods[i].getName() != "null") 
+            {
                 System.out.println((i + 1) + ". " + foods[i].getName());
+            }
+            else
+            {
+            	System.out.println((i + 1) + ". ");
             }
         }
     }
@@ -75,7 +90,8 @@ public class MealPlan {
         MealPlan[] weeklyMealPlans = new MealPlan[7]; // Array to hold seven MealPlan objects, one for each day
 
         // Create MealPlan objects for each day of the week
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) 
+        {
             weeklyMealPlans[i] = new MealPlan();
         }
 

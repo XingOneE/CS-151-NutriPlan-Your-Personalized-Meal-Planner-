@@ -14,7 +14,12 @@ public class PersonalInfo {
 		height = 1;
 		weight = 1;
 		allergies = new String[5];
-		allergies[0] = "none";
+		
+		for(int i = 0; i < allergies.length; i++)
+		{
+			allergies[i] = "none";
+		}
+		
 		
 	}
 	
@@ -70,9 +75,6 @@ public class PersonalInfo {
 		boolean room = true;
 		int i = 0;
 		
-		
-		
-		
 		while(room == true)
 		{
 			
@@ -94,6 +96,25 @@ public class PersonalInfo {
 		
 		
 	}
+	
+	public void removeAllergies(int a)
+	{
+		if(a < 0 || a > 4)
+		{
+			System.out.println("Allergy " + getAllergies()[a] + " removed.");
+			
+			String empty = "none";
+			getAllergies()[a] = empty;
+		}
+		else
+		{
+			System.out.println("Invalid index.");
+		}
+		
+		
+	}
+	
+	
 	
 	
 	

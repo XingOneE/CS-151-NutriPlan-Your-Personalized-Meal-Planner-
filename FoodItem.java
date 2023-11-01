@@ -5,21 +5,21 @@ public class FoodItem {
 	
 	private String name = "null";
 	private double price = 0.0;
-	private int calories = 0;
-	private int carbs = 0;
-	private int protein = 0;
-	private int fat = 0;
-	private int sugar = 0;
+	private double calories = 0.0;
+	private double carbs = 0.0;
+	private double protein = 0.0;
+	private double fat = 0.0;
+	private double sugar = 0.0;
 	
 	FoodItem()
 	{
 		name = "null";
 		price = 0.0;
-		calories = 0;
-		carbs = 0;
-		protein = 0;
-		fat = 0;
-		sugar = 0;
+		calories = 0.0;
+		carbs = 0.0;
+		protein = 0.0;
+		fat = 0.0;
+		sugar = 0.0;
 		
 	}
 	
@@ -42,27 +42,27 @@ public class FoodItem {
 		price = p;
 	}
 	
-	public void setCalories(int c)
+	public void setCalories(double c)
 	{
 		calories = c;
 	}
 	
-	public void setCarbs(int c)
+	public void setCarbs(double c)
 	{
 		carbs = c;
 	}
 	
-	public void setProtein(int p)
+	public void setProtein(double p)
 	{
 		protein = p;
 	}
 	
-	public void setFat(int f)
+	public void setFat(double f)
 	{
 		fat = f;
 	}
 	
-	public void setSugar(int s)
+	public void setSugar(double s)
 	{
 		sugar = s;
 	}
@@ -79,27 +79,27 @@ public class FoodItem {
 		return price;
 	}
 	
-	public int getCalories()
+	public double getCalories()
 	{
 		return calories;
 	}
 
-	public int getCarbs()
+	public double getCarbs()
 	{
 		return carbs;
 	}
 	
-	public int getProtein()
+	public double getProtein()
 	{
 		return protein;
 	}
 	
-	public int getFat()
+	public double getFat()
 	{
 		return fat;
 	}
 	
-	public int getSugar()
+	public double getSugar()
 	{
 		return sugar;
 	}
