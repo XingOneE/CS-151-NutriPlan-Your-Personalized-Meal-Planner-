@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class MealPlannerApp {
     public static void main(String[] args) {
+
         SwingUtilities.invokeLater(() -> {
             createAndShowGUI();
         });
@@ -29,6 +30,7 @@ public class MealPlannerApp {
             public void actionPerformed(ActionEvent e) {
                 // Logic for the "Create Meal Plan" option
                 JOptionPane.showMessageDialog(frame, "Create Meal Plan Option Selected");
+
             }
         });
 
