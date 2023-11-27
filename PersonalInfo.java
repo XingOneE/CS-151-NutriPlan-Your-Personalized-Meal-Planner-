@@ -5,7 +5,7 @@ public class PersonalInfo {
 	private String name = "";
 	private int height = 1;
 	private int weight = 1;
-	private String[] allergies;
+	private String[] allergies = new String[5];
 	
 	
 	PersonalInfo()
@@ -112,6 +112,14 @@ public class PersonalInfo {
 		}
 		
 		
+	}
+	
+	public void ReadAllergies()
+	{
+		for(int i = 0; i < allergies.length; i++)
+		{
+			System.out.println((i + 1) + ". " + allergies[i]);
+		}
 	}
 	
 	

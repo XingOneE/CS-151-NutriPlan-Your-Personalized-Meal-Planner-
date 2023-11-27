@@ -1,11 +1,12 @@
 package package_a;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Nutriplan {
 
 	private PersonalInfo info;
-	MealPlanManager manager;
+	private MealPlanManager manager;
 	
 	
 	Nutriplan()
@@ -58,7 +59,7 @@ public class Nutriplan {
 		System.out.println("What is your name?");
 		name = scan.next();
 		
-		System.out.println("Your height (in ft)?");
+		System.out.println("Your height (in inches)?");
 		height = scan.nextInt();
 		
 		System.out.println("Your weight (in lbs)?");
@@ -67,13 +68,70 @@ public class Nutriplan {
 		PersonalInfo newInfo = new PersonalInfo(name, height, weight);
 		info = newInfo;
 		
+		System.out.println("Enter the amount of allergies you have (max. 5)");
+		int count = scan.nextInt();
+		String al = "";
+		
+		System.out.println("Enter each allergy one by one:");
+		for(int j = 0; j < count; j++)
+		{
+			al = scan.next();
+			getPersonalInfo().addAllergies(al);
+		}
+		
+
+		
+		
 	}
 	
-	public void mainMenu(Scanner scan, Nutriplan np)
+	public void mainMenu(Scanner scan, Nutriplan np) throws FileNotFoundException
 	{
+		boolean value = true;
+		int day = 0;
 		
+		//System.out.println("");
 		
+		System.out.println("Hello " + getPersonalInfo().getName());
 		
+		while(value == true)
+		{
+			
+			System.out.println("Please select a day of the week to set up by inputing a #: \n");
+			System.out.println("1. Sunday");
+			System.out.println("2. Monday");
+			System.out.println("3. Tuesday");
+			System.out.println("4. Wednesday");
+			System.out.println("5. Thursday");
+			System.out.println("6. Friday");
+			System.out.println("7. Saturday");
+			System.out.println("8. Save and Exit (Go back to first screen)");
+			
+			day = scan.nextInt();
+			
+			
+			
+			
+			if(day == 8)
+			{
+				DataManager dm = new DataManager();
+				dm.saveFile(np);
+				
+				value = false;
+			}
+			else if(day <= 0 || day > 8)
+			{
+				
+				System.out.println("Invalid option, try again");
+			}
+			else
+			{
+				getMealPlanManager().editMealPlan(day - 1, scan);
+			}
+			
+			
+			
+			
+		}
 		
 		
 	}
@@ -86,10 +144,10 @@ public class Nutriplan {
 	{
 		System.out.println("The Nutriplan Team: \n");
 		
-		System.out.println("Xing Yu Luo: ");
-		System.out.println("Vincent Nguyen: ");
-		System.out.println("Kshitij Tyagi: ");
-		System.out.println("Aaron Nguyen: ");
+		System.out.println("Xing Yu Luo: MealPlanManager, MealPlam");
+		System.out.println("Vincent Nguyen: PersonalInfo, FoodItem, DataManager");
+		System.out.println("Kshitij Tyagi: MealPlannerApp");
+		System.out.println("Aaron Nguyen: Nutriplan");
 		
 	}
 	

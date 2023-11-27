@@ -105,6 +105,18 @@ public class FoodItem {
 	}
 	
 	
+	public void displayNutrition()
+	{
+		System.out.println("(" + getName() + ") Nutritional Facts: \n");
+		System.out.println("$" + getPrice());
+		System.out.println("Calories: " + getCalories());
+		System.out.println("carbs: " + getCarbs());
+		System.out.println("Protein: " + getProtein());
+		System.out.println("Fat: " + getFat());
+		System.out.println("Sugar: " + getSugar());
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

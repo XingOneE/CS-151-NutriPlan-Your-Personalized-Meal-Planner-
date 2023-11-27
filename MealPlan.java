@@ -4,6 +4,7 @@ public class MealPlan {
 	
     private FoodItem[] foods;
     private int foodCapacity = 10;
+    int amount = 0;
 
     public MealPlan() 
     {
@@ -13,6 +14,8 @@ public class MealPlan {
         {
         	foods[i] = new FoodItem();
         }
+        
+        amount = 0;
         
     }
     
@@ -26,6 +29,11 @@ public class MealPlan {
 		foodCapacity = fc;
 	}
 	
+	public void setAmount(int a)
+	{
+		amount = a;
+	}
+	
 	
 	public FoodItem[] getFoods()
 	{
@@ -35,6 +43,11 @@ public class MealPlan {
 	public int getFoodCapacity()
 	{
 		return foodCapacity;
+	}
+	
+	public int getAmount()
+	{
+		return amount;
 	}
     
 
@@ -47,6 +60,7 @@ public class MealPlan {
             {
                 foods[i] = food;
                 System.out.println("Added " + food.getName() + " to the meal plan.");
+                amount++;
                 return;
             }
         }
@@ -71,8 +85,10 @@ public class MealPlan {
     }
 
     // Display the contents of the meal plan
-    public void displayMealPlan() {
+    public void display() 
+    {
         System.out.println("Meal Plan:");
+        
         for (int i = 0; i < foodCapacity; i++)
         {
             if (foods[i].getName() != "null") 
@@ -86,20 +102,8 @@ public class MealPlan {
         }
     }
 
-    public static void main(String[] args) {
-        MealPlan[] weeklyMealPlans = new MealPlan[7]; // Array to hold seven MealPlan objects, one for each day
-
-        // Create MealPlan objects for each day of the week
-        for (int i = 0; i < 7; i++) 
-        {
-            weeklyMealPlans[i] = new MealPlan();
-        }
-
-        // Add, remove, and display food items in the meal plans
-        //weeklyMealPlans[0].addFoodItem(new FoodItem("Chicken", 10.0, 250, 0, 30, 10, 0));
-        // weeklyMealPlans[0].addFoodItem(new FoodItem("Rice", 2.0, 200, 45, 5, 1, 0));
-        weeklyMealPlans[0].displayMealPlan();
-        weeklyMealPlans[0].removeFoodItem(0);
-        weeklyMealPlans[0].displayMealPlan();
+    public static void main(String[] args) 
+    {
+        
     }
 }

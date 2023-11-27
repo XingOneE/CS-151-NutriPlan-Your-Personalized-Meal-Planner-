@@ -52,12 +52,19 @@ public class Main {
 				}
 				case 2:
 				{
-					System.out.println("Reading current meal plan");
-					dm.loadFile(directory + "\\NutriplanData", np);
-					
-					for(int t = 0; t < 7; t++)
+					try
 					{
-						np.getMealPlanManager().displayMealPlan(t);
+						System.out.println("Reading current meal plan");
+						dm.loadFile(directory + "\\NutriplanData", np);
+						
+						for(int t = 0; t < 7; t++)
+						{
+							np.getMealPlanManager().displayMealPlan(t);
+						}
+					}
+					catch(Exception e)
+					{
+						System.out.println("File not found.");
 					}
 					
 					
@@ -66,9 +73,18 @@ public class Main {
 				}
 				case 3:
 				{
-					System.out.println("Edit current meal plan");
-					dm.loadFile(directory + "\\NutriplanData", np);
-					np.mainMenu(scan, np);
+					
+					
+					try
+					{
+						System.out.println("Edit current meal plan");
+						dm.loadFile(directory + "\\NutriplanData", np);
+						np.mainMenu(scan, np);
+					}
+					catch(Exception e)
+					{
+						System.out.println("File not found.");
+					}
 					
 					option = 5;
 					break;

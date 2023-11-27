@@ -1,16 +1,11 @@
-package package_a; 
+package package_a;
 
+import java.util.Scanner;
 
 public class MealPlanManager {
 
     private MealPlan[] weeklyMealPlans;
-    
-    private double calories;
-    private double fat;
-    private double protein;
-    private double carbs;
-    private double sugar;
-    
+    String day[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satruday"};
     
     
     public void setMealPlan(MealPlan[] m)
@@ -30,38 +25,140 @@ public class MealPlanManager {
     
     
 
-    public MealPlanManager() {
+    public MealPlanManager() 
+    {
         weeklyMealPlans = new MealPlan[7];
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) 
+        {
             weeklyMealPlans[i] = new MealPlan();
         }
     }
 
-    public void addFoodItem(int dayOfWeek, FoodItem food) {
-        if (dayOfWeek >= 0 && dayOfWeek < 7) {
-            weeklyMealPlans[dayOfWeek].addFoodItem(food);
-        } else {
-            System.out.println("Invalid day of the week.");
-        }
-    }
-
-    public void removeFoodItem(int dayOfWeek, int index) 
+    public void editMealPlan(int dayOfWeek, Scanner scan) 
     {
-        if (dayOfWeek >= 0 && dayOfWeek < 7) 
-        {
-            weeklyMealPlans[dayOfWeek].removeFoodItem(index);
-        } 
-        else {
-            System.out.println("Invalid day of the week.");
-        }
+    	
+    	boolean val = true;
+    	int option = 0;
+    	
+    	String fName = "";
+    	int fStats = 0;
+    	
+    	while(val == true)
+    	{
+    		System.out.println(day[dayOfWeek] + "\n");
+        	
+        	System.out.println("Number of Items: " + getMealPlan()[dayOfWeek].getAmount());
+        	getMealPlan()[dayOfWeek].display();
+        	
+        	System.out.println("\n Please select an option by inputing a #: \n");
+        	
+        	System.out.println("1. Add a food");
+			System.out.println("2. Remove a food");
+			System.out.println("3. Read Nutrition of Food");
+			System.out.println("4. Exit (back to previous screen)");
+			
+			option = scan.nextInt();
+			
+			switch (option)
+			{
+				case 1:
+				{
+					FoodItem food = new FoodItem();
+					
+					System.out.println("Enter name of Food (no spaces): ");
+					fName = scan.next();
+					food.setName(fName);
+					
+					System.out.println("Price: ");
+					fStats = scan.nextInt();
+					food.setPrice(fStats);
+					
+					System.out.println("Calories: ");
+					fStats = scan.nextInt();
+					food.setCalories(fStats);
+					
+					System.out.println("Carbs: ");
+					fStats = scan.nextInt();
+					food.setCarbs(fStats);
+					
+					System.out.println("Protein: ");
+					fStats = scan.nextInt();
+					food.setProtein(fStats);
+					
+					System.out.println("Fat: ");
+					fStats = scan.nextInt();
+					food.setFat(fStats);
+					
+					System.out.println("Sugar: ");
+					fStats = scan.nextInt();
+					food.setSugar(fStats);
+					
+					getMealPlan()[dayOfWeek].addFoodItem(food);
+					System.out.println("Item sucessfully added.");
+					
+					
+					break;
+				}
+				case 2:
+				{
+					System.out.println("Select Food item by inputing a #:");
+					fStats = scan.nextInt();
+					
+					if(fStats > 10 || fStats < 0)
+					{
+						System.out.println("Invalid option");
+					}
+					else if(getMealPlan()[dayOfWeek].getFoods()[fStats].getName() == "null")
+					{
+						System.out.println("Invalid option");
+					}
+					else
+					{
+						getMealPlan()[dayOfWeek].removeFoodItem(fStats - 1);
+					}
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Select Food item by inputing a #:");
+					fStats = scan.nextInt();
+					
+					if(fStats > 10 || fStats < 0)
+					{
+						System.out.println("Invalid option");
+					}
+					else if(getMealPlan()[dayOfWeek].getFoods()[fStats].getName() == "null")
+					{
+						System.out.println("Invalid option");
+					}
+					else
+					{
+						getMealPlan()[dayOfWeek].getFoods()[fStats - 1].displayNutrition();
+					}
+					
+					break;
+				}
+				case 4:
+				{
+					val = false;
+					break;
+				}
+
+
+			}
+        	
+    	}
+    	
+    	
+    	
     }
 
     public void displayMealPlan(int dayOfWeek) 
     {
         if (dayOfWeek >= 0 && dayOfWeek < 7) 
         {
-            System.out.println("Meal Plan for Day " + (dayOfWeek + 1) + ":");
-            weeklyMealPlans[dayOfWeek].displayMealPlan();
+            System.out.println("Meal Plan for Day " + (dayOfWeek + 1) + " " + day[dayOfWeek] + ":");
+            weeklyMealPlans[dayOfWeek].display();
         } 
         else 
         {
@@ -69,64 +166,12 @@ public class MealPlanManager {
         }
     }
     
-    public void displayMacroGoals() {
-        double tempCalories = 0;
-        double tempFat = 0;
-        double tempProtein = 0;
-        double tempCarbs = 0;
-        double tempSugar = 0;
-
-        for (int i = 0; i < 7; i++) 
-        {
-        	for(int j = 0; j < weeklyMealPlans[i].getFoods().length; j++)
-        	{
-        		FoodItem item = weeklyMealPlans[i].getFoods()[j];
-                tempCalories += item.getCalories();
-                tempFat += item.getFat();
-                tempProtein += item.getProtein();
-                tempCarbs += item.getCarbs();
-                tempSugar += item.getSugar();
-        	}
-        	
-        }
-
-        System.out.println("Calorie Goal: " + calories);
-        System.out.println("Calorie Intake: " + tempCalories);
-        System.out.println("Calorie Difference: " + (tempCalories - calories));
-
-        System.out.println("Fat Goal: " + fat);
-        System.out.println("Fat Intake: " + tempFat);
-        System.out.println("Fat Difference: " + (tempFat - fat));
-
-        System.out.println("Protein Goal: " + protein);
-        System.out.println("Protein Intake: " + tempProtein);
-        System.out.println("Protein Difference: " + (tempProtein - protein));
-
-        System.out.println("Protein Goal: " + protein);
-        System.out.println("Protein Intake: " + tempProtein);
-        System.out.println("Protein Difference: " + (tempProtein - protein));
-
-        System.out.println("Carbs Goal: " + carbs);
-        System.out.println("Carbs Intake: " + tempCarbs);
-        System.out.println("Catbs Difference: " + (tempCarbs - carbs));
-
-        System.out.println("Sugar Goal: " + sugar);
-        System.out.println("Sugar Intake: " + tempSugar);
-        System.out.println("Sugar Difference: " + (tempSugar - sugar));
-    }
+   
     
 
-    public static void main(String[] args) {
-        //MealPlanManager manager = new MealPlanManager();
-
-        // Adding and displaying food items for the first day
-        // manager.addFoodItem(0, new FoodItem("Chicken", 10.0, 250, 0, 30, 10, 0));
-        // manager.addFoodItem(0, new FoodItem("Rice", 2.0, 200, 45, 5, 1, 0);
-        //manager.displayMealPlan(0);
-
-        // Removing a food item from the first day
-        //manager.removeFoodItem(0, 0);
-        //manager.displayMealPlan(0);
+    public static void main(String[] args) 
+    {
+       
     }
 }
     

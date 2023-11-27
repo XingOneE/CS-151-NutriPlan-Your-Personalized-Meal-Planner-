@@ -106,6 +106,11 @@ public class DataManager {
 		profile.getPersonalInfo().setHeight(lineReader.nextInt());
 		profile.getPersonalInfo().setWeight(lineReader.nextInt());
 		
+		for(int m = 0; m < profile.getPersonalInfo().getAllergies().length; m++)
+		{
+			profile.getPersonalInfo().addAllergies(lineReader.next());
+		}
+		
 		
 		//loops through mealPlan array in MealPLanManager (total of 7)
 				for(int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++)
@@ -134,7 +139,15 @@ public class DataManager {
 	}
 	
 	
-	
+	public void clearFile(Nutriplan profile)
+	{
+		
+		Nutriplan empty = new Nutriplan();
+		profile = empty;
+		
+		
+		
+	}
 	
 	
 	
