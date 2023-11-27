@@ -44,7 +44,12 @@ public class MealPlanManager {
     }
 
     public void printEntireMealPlan() {
-        weeklyMealPlans[0].displayMealPlan();
+
+        for (int i = 0; i < 7; i++) {
+            System.out.println("Displaying Meal Plan of Day " + (i + 1) + " of the Week");
+            weeklyMealPlans[i].displayMealPlan();
+        }
+
     }
 
     public static void main(String[] args) {

@@ -69,7 +69,9 @@ public class Nutriplan {
 		System.out.println("How much sugar?");
 		int sugar = scan.nextInt();
 		FoodItem food = new FoodItem(name, price, calories, carbs, protein, fat, sugar);
-		manager.addFoodItem(0, food);
+		System.out.println("What day would you like to add this to?");
+		int dayOfWeek = scan.nextInt();
+		manager.addFoodItem(dayOfWeek, food);
 	}
 
 	public void printMealPlan() {
