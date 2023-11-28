@@ -34,19 +34,21 @@ public class MealPlanManager {
         }
     }
 
-    public void editMealPlan(int dayOfWeek, Scanner scan) 
+    public void editMealPlan(int dayOfWeek, Scanner scan, Nutriplan np) 
     {
     	
     	boolean val = true;
     	int option = 0;
     	
     	String fName = "";
-    	int fStats = 0;
+    	double fStats = 0;
+    	int fInt = 0;
     	
     	while(val == true)
     	{
     		System.out.println(day[dayOfWeek] + "\n");
-        	
+    		
+    		System.out.println("Budget: $" + getMealPlan()[dayOfWeek].dayBudget);
         	System.out.println("Number of Items: " + getMealPlan()[dayOfWeek].getAmount());
         	getMealPlan()[dayOfWeek].display();
         	
@@ -70,31 +72,31 @@ public class MealPlanManager {
 					food.setName(fName);
 					
 					System.out.println("Price: ");
-					fStats = scan.nextInt();
+					fStats = scan.nextDouble();
 					food.setPrice(fStats);
 					
 					System.out.println("Calories: ");
-					fStats = scan.nextInt();
+					fStats = scan.nextDouble();
 					food.setCalories(fStats);
 					
 					System.out.println("Carbs: ");
-					fStats = scan.nextInt();
+					fStats = scan.nextDouble();
 					food.setCarbs(fStats);
 					
 					System.out.println("Protein: ");
-					fStats = scan.nextInt();
+					fStats = scan.nextDouble();
 					food.setProtein(fStats);
 					
 					System.out.println("Fat: ");
-					fStats = scan.nextInt();
+					fStats = scan.nextDouble();
 					food.setFat(fStats);
 					
 					System.out.println("Sugar: ");
-					fStats = scan.nextInt();
+					fStats = scan.nextDouble();
 					food.setSugar(fStats);
 					
-					getMealPlan()[dayOfWeek].addFoodItem(food);
-					System.out.println("Item sucessfully added.");
+					getMealPlan()[dayOfWeek].addFoodItem(food, np);
+					
 					
 					
 					break;
@@ -102,38 +104,38 @@ public class MealPlanManager {
 				case 2:
 				{
 					System.out.println("Select Food item by inputing a #:");
-					fStats = scan.nextInt();
+					fInt = scan.nextInt();
 					
 					if(fStats > 10 || fStats < 0)
 					{
 						System.out.println("Invalid option");
 					}
-					else if(getMealPlan()[dayOfWeek].getFoods()[fStats].getName() == "null")
+					else if(getMealPlan()[dayOfWeek].getFoods()[fInt].getName() == "null")
 					{
 						System.out.println("Invalid option");
 					}
 					else
 					{
-						getMealPlan()[dayOfWeek].removeFoodItem(fStats - 1);
+						getMealPlan()[dayOfWeek].removeFoodItem(fInt - 1);
 					}
 					break;
 				}
 				case 3:
 				{
 					System.out.println("Select Food item by inputing a #:");
-					fStats = scan.nextInt();
+					fInt = scan.nextInt();
 					
-					if(fStats > 10 || fStats < 0)
+					if(fInt > 10 || fInt < 0)
 					{
 						System.out.println("Invalid option");
 					}
-					else if(getMealPlan()[dayOfWeek].getFoods()[fStats].getName() == "null")
+					else if(getMealPlan()[dayOfWeek].getFoods()[fInt].getName() == "null")
 					{
 						System.out.println("Invalid option");
 					}
 					else
 					{
-						getMealPlan()[dayOfWeek].getFoods()[fStats - 1].displayNutrition();
+						getMealPlan()[dayOfWeek].getFoods()[fInt - 1].displayNutrition();
 					}
 					
 					break;
@@ -166,9 +168,115 @@ public class MealPlanManager {
         }
     }
     
-   
+    public double getTotalCost()
+    {
+    	double total = 0;
+    	
+    	for(int i = 0; i < getMealPlan().length; i++)
+		{
+			
+			for(int j = 0; j < getMealPlan()[i].getFoods().length; j++)
+			{
+				total += getMealPlan()[i].getFoods()[j].getPrice();
+			}
+			
+		}
+    	
+    	
+    	return total;
+    }
     
-
+    public double getTotalCals()
+    {
+    	double total = 0;
+    	
+    	for(int i = 0; i < getMealPlan().length; i++)
+		{
+			
+			for(int j = 0; j < getMealPlan()[i].getFoods().length; j++)
+			{
+				total += getMealPlan()[i].getFoods()[j].getCalories();
+			}
+			
+		}
+    	
+    	
+    	return total;
+    }
+    
+    public double getTotalCarbs()
+    {
+    	double total = 0;
+    	
+    	for(int i = 0; i < getMealPlan().length; i++)
+		{
+			
+			for(int j = 0; j < getMealPlan()[i].getFoods().length; j++)
+			{
+				total += getMealPlan()[i].getFoods()[j].getCarbs();
+			}
+			
+		}
+    	
+    	
+    	return total;
+    }
+    
+    public double getTotalProtein()
+    {
+    	double total = 0;
+    	
+    	for(int i = 0; i < getMealPlan().length; i++)
+		{
+			
+			for(int j = 0; j < getMealPlan()[i].getFoods().length; j++)
+			{
+				total += getMealPlan()[i].getFoods()[j].getProtein();
+			}
+			
+		}
+    	
+    	
+    	return total;
+    }
+   
+    public double getTotalFat()
+    {
+    	double total = 0;
+    	
+    	for(int i = 0; i < getMealPlan().length; i++)
+		{
+			
+			for(int j = 0; j < getMealPlan()[i].getFoods().length; j++)
+			{
+				total += getMealPlan()[i].getFoods()[j].getFat();
+			}
+			
+		}
+    	
+    	
+    	return total;
+    }
+    
+    public double getTotalSugar()
+    {
+    	double total = 0;
+    	
+    	for(int i = 0; i < getMealPlan().length; i++)
+		{
+			
+			for(int j = 0; j < getMealPlan()[i].getFoods().length; j++)
+			{
+				total += getMealPlan()[i].getFoods()[j].getSugar();
+			}
+			
+		}
+    	
+    	
+    	return total;
+    }
+    
+    
     public static void main(String[] args) 
     {
        

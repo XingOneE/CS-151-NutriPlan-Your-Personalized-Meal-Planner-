@@ -48,10 +48,26 @@ public class DataManager {
 			pen.print(" ");
 		}
 		
+		pen.print(profile.getPersonalInfo().budget);
+		pen.print(" ");
+		pen.print(profile.getPersonalInfo().calGoals);
+		pen.print(" ");
+		pen.print(profile.getPersonalInfo().carbGoals);
+		pen.print(" ");
+		pen.print(profile.getPersonalInfo().protGoals);
+		pen.print(" ");
+		pen.print(profile.getPersonalInfo().fatGoals);
+		pen.print(" ");
+		pen.print(profile.getPersonalInfo().sugGoals);
+		pen.print(" ");
+		
+		
+		
 		//loops through mealPlan array in MealPLanManager (total of 7)
 		for(int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++)
 		{
-			
+			pen.print(profile.getMealPlanManager().getMealPlan()[i].dayBudget);
+			pen.print(" ");
 			
 			//loops through foods array in MealPlan (total of 10)
 			for(int j = 0; j < profile.getMealPlanManager().getMealPlan()[i].getFoods().length; j++)
@@ -111,10 +127,18 @@ public class DataManager {
 			profile.getPersonalInfo().addAllergies(lineReader.next());
 		}
 		
+		profile.getPersonalInfo().budget = lineReader.nextDouble();
+		profile.getPersonalInfo().calGoals = lineReader.nextDouble();
+		profile.getPersonalInfo().carbGoals = lineReader.nextDouble();
+		profile.getPersonalInfo().protGoals = lineReader.nextDouble();
+		profile.getPersonalInfo().fatGoals = lineReader.nextDouble();
+		profile.getPersonalInfo().sugGoals = lineReader.nextDouble();
+		
 		
 		//loops through mealPlan array in MealPLanManager (total of 7)
 				for(int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++)
 				{
+					profile.getMealPlanManager().getMealPlan()[i].dayBudget = lineReader.nextDouble();
 					
 					//loops through foods array in MealPlan (total of 10)
 					for(int j = 0; j < profile.getMealPlanManager().getMealPlan()[i].getFoods().length; j++)

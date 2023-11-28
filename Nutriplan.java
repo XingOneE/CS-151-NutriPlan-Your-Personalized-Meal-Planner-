@@ -104,28 +104,32 @@ public class Nutriplan {
 			System.out.println("5. Thursday");
 			System.out.println("6. Friday");
 			System.out.println("7. Saturday");
-			System.out.println("8. Save and Exit (Go back to first screen)");
+			System.out.println("8. Update Goals");
+			System.out.println("9. Save and Exit (Go back to first screen)");
 			
 			day = scan.nextInt();
 			
 			
 			
-			
 			if(day == 8)
+			{
+				getPersonalInfo().updateGoals(scan, np);
+			}
+			else if(day == 9)
 			{
 				DataManager dm = new DataManager();
 				dm.saveFile(np);
 				
 				value = false;
 			}
-			else if(day <= 0 || day > 8)
+			else if(day <= 0 || day > 9)
 			{
 				
 				System.out.println("Invalid option, try again");
 			}
 			else
 			{
-				getMealPlanManager().editMealPlan(day - 1, scan);
+				getMealPlanManager().editMealPlan(day - 1, scan, np);
 			}
 			
 			
@@ -144,7 +148,7 @@ public class Nutriplan {
 	{
 		System.out.println("The Nutriplan Team: \n");
 		
-		System.out.println("Xing Yu Luo: MealPlanManager, MealPlam");
+		System.out.println("Xing Yu Luo: MealPlanManager, MealPlan");
 		System.out.println("Vincent Nguyen: PersonalInfo, FoodItem, DataManager");
 		System.out.println("Kshitij Tyagi: MealPlannerApp");
 		System.out.println("Aaron Nguyen: Nutriplan");
