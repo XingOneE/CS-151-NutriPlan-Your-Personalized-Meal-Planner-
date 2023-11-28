@@ -91,7 +91,7 @@ public class MealPlan {
         
         for (int i = 0; i < foodCapacity; i++)
         {
-            if (foods[i].getName() != "null") 
+            if (foods[i].getName().equals("null") == false) 
             {
                 System.out.println((i + 1) + ". " + foods[i].getName());
             }
