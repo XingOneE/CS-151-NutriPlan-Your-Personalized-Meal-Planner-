@@ -1,10 +1,10 @@
 NutriPlan: Your Personalized Meal Planner
 
 Members:
-Kishitij Tyagi
-Vincent Nguyen
-Xing Yu Luo
-Aaron Nguyen
+Kshitij Tyagi,
+Vincent Nguyen,
+Xing Yu Luo,
+Aaron Nguyen,
 
 Team 5 
 
