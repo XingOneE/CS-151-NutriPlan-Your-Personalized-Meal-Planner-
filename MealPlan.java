@@ -2,11 +2,15 @@
 public class MealPlan {
 
     private FoodItem[] foods;
-    private int foodCapacity = 10;
+    private int foodCapacity;
     private int foodIndex;
 
+    /**
+     * Constructor of meal plan
+     */
     public MealPlan() {
         foods = new FoodItem[foodCapacity];
+        foodCapacity = 10;
         foodIndex = 0;
         for (int i = 0; i < foodCapacity; i++) {
             foods[i] = new FoodItem();
@@ -14,29 +18,57 @@ public class MealPlan {
 
     }
 
+    /**
+     * Set the foods in meal plan
+     * 
+     * @param food the desired foods in meal plan
+     */
     public void setFoods(FoodItem[] food) {
         foods = food;
     }
 
+    /**
+     * Set the food capacity
+     * 
+     * @param fc the desired food capacity
+     */
     public void setFoodCapacity(int fc) {
         foodCapacity = fc;
     }
 
+    /**
+     * Get the foods in meal plan
+     * 
+     * @return foods the foods in meal plan
+     */
     public FoodItem[] getFoods() {
         return foods;
     }
 
+    /**
+     * Get the food capacity of meal plan
+     * 
+     * @return foodCapacity the food capacity of meal plan
+     */
     public int getFoodCapacity() {
         return foodCapacity;
     }
 
-    // Add a food item to the meal plan
+    /**
+     * Adds food item to meal plan
+     * 
+     * @param food the desired food to add to meal plan
+     */
     public void addFoodItem(FoodItem food) {
         foods[foodIndex++] = food;
         System.out.println("Added " + food.getName() + " to the meal plan.");
     }
 
-    // Remove a food item from the meal plan
+    /**
+     * Removes food item from meal plan
+     * 
+     * @param index the desired food to remove from meal plan
+     */
     public void removeFoodItem(int index) {
         if (index >= 0 && index < foodCapacity && foods[index] != null) {
             String removedFoodName = foods[index].getName();
@@ -47,32 +79,14 @@ public class MealPlan {
         }
     }
 
-    // Display the contents of the meal plan
+    /**
+     * Displays the meal plan
+     */
     public void displayMealPlan() {
         System.out.println("Meal Plan:");
         for (int i = 0; i < foodCapacity; i++) {
             System.out.println((i + 1) + ". " + foods[i].getName());
         }
-    }
-
-    public static void main(String[] args) {
-        // MealPlan[] weeklyMealPlans = new MealPlan[7]; // Array to hold seven MealPlan
-        // objects, one for each day
-
-        // // Create MealPlan objects for each day of the week
-        // for (int i = 0; i < 7; i++) {
-        // weeklyMealPlans[i] = new MealPlan();
-        // }
-
-        // // Add, remove, and display food items in the meal plans
-        // // weeklyMealPlans[0].addFoodItem(new FoodItem("Chicken", 10.0, 250, 0, 30,
-        // 10,
-        // // 0));
-        // // weeklyMealPlans[0].addFoodItem(new FoodItem("Rice", 2.0, 200, 45, 5, 1,
-        // 0));
-        // weeklyMealPlans[0].displayMealPlan();
-        // weeklyMealPlans[0].removeFoodItem(0);
-        // weeklyMealPlans[0].displayMealPlan();
     }
 
 }

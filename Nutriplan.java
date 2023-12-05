@@ -6,6 +6,9 @@ public class Nutriplan {
 	private PersonalInfo info;
 	MealPlanManager manager;
 
+	/**
+	 * Constructor for Nutriplan
+	 */
 	Nutriplan() {
 		PersonalInfo newInfo = new PersonalInfo();
 		MealPlanManager newManager = new MealPlanManager();
@@ -15,44 +18,70 @@ public class Nutriplan {
 
 	}
 
+	/**
+	 * Set new personal info
+	 * 
+	 * @param pi the new desired personal info
+	 */
 	public void setPersonalInfo(PersonalInfo pi) {
 		info = pi;
 	}
 
+	/**
+	 * Set new meal plan manager
+	 * 
+	 * @param m the new desired meal plan manager
+	 */
 	public void setMealPlanManager(MealPlanManager m) {
 		manager = m;
 	}
 
+	/**
+	 * Get the personal info of person
+	 * 
+	 * @return info the person info of person
+	 */
 	public PersonalInfo getPersonalInfo() {
 		return info;
 	}
 
+	/**
+	 * Get the meal plan manager of person
+	 * 
+	 * @return manager the meal plan manager of person
+	 */
 	public MealPlanManager getMealPlanManager() {
 		return manager;
 	}
 
+	/**
+	 * Takes user input to set new personal info
+	 * 
+	 * @param scan the desired scanner scanning for user input
+	 */
 	public void newPersonalInfo(Scanner scan) {
-
-		String name = "";
-		int height = 1;
-		int weight = 1;
 
 		System.out.println("Hello user, please provide us with some information about yourself: \n");
 
 		System.out.println("What is your name?");
-		name = scan.next();
+		String name = scan.next();
 
 		System.out.println("Your height (in ft)?");
-		height = scan.nextInt();
+		int height = scan.nextInt();
 
 		System.out.println("Your weight (in lbs)?");
-		weight = scan.nextInt();
+		int weight = scan.nextInt();
 
 		PersonalInfo newInfo = new PersonalInfo(name, height, weight);
 		info = newInfo;
 
 	}
 
+	/**
+	 * Takes user input to edit meal plan
+	 * 
+	 * @param scan the desired scanner scanning for user input
+	 */
 	public void editMealPlan(Scanner scan) {
 		System.out.println("What is the name of the food?");
 		String name = scan.next();
@@ -74,10 +103,16 @@ public class Nutriplan {
 		manager.addFoodItem(dayOfWeek, food);
 	}
 
+	/**
+	 * Prints of meal plan of person
+	 */
 	public void printMealPlan() {
 		manager.printEntireMealPlan();
 	}
 
+	/**
+	 * Prints out team member names
+	 */
 	public void credits() {
 		System.out.println("The Nutriplan Team: ");
 		System.out.println();
@@ -85,11 +120,6 @@ public class Nutriplan {
 		System.out.println("Vincent Nguyen: ");
 		System.out.println("Kshitij Tyagi: ");
 		System.out.println("Aaron Nguyen: ");
-
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 

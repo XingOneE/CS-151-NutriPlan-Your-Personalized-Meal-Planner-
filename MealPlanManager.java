@@ -3,14 +3,9 @@ public class MealPlanManager {
 
     private MealPlan[] weeklyMealPlans;
 
-    public void setMealPlan(MealPlan[] m) {
-        weeklyMealPlans = m;
-    }
-
-    public MealPlan[] getMealPlan() {
-        return weeklyMealPlans;
-    }
-
+    /**
+     * Constructor for meal plan manager
+     */
     public MealPlanManager() {
         weeklyMealPlans = new MealPlan[7];
         for (int i = 0; i < 7; i++) {
@@ -18,6 +13,30 @@ public class MealPlanManager {
         }
     }
 
+    /**
+     * Sets new meal plans
+     * 
+     * @param m the desired meal plans
+     */
+    public void setMealPlan(MealPlan[] m) {
+        weeklyMealPlans = m;
+    }
+
+    /**
+     * Gets the meal plans
+     * 
+     * @return weeklyMealPlans the meal plans
+     */
+    public MealPlan[] getMealPlan() {
+        return weeklyMealPlans;
+    }
+
+    /**
+     * Adds food item to specific day of the week
+     * 
+     * @param dayOfWeek the desired day of the week, 0 for Sunday, 6 for Saturday
+     * @param food      the desired food to add
+     */
     public void addFoodItem(int dayOfWeek, FoodItem food) {
         if (dayOfWeek >= 0 && dayOfWeek < 7) {
             weeklyMealPlans[dayOfWeek].addFoodItem(food);
@@ -26,6 +45,12 @@ public class MealPlanManager {
         }
     }
 
+    /**
+     * Removes food item from specific day of the week
+     * 
+     * @param dayOfWeek the desired day of the week, 0 for Sunday, 6 for Saturday
+     * @param index     the desired food to remove
+     */
     public void removeFoodItem(int dayOfWeek, int index) {
         if (dayOfWeek >= 0 && dayOfWeek < 7) {
             weeklyMealPlans[dayOfWeek].removeFoodItem(index);
@@ -34,6 +59,11 @@ public class MealPlanManager {
         }
     }
 
+    /**
+     * Displays the meal plan of a specfic day
+     * 
+     * @param dayOfWeek the desired day to view meal plan
+     */
     public void displayMealPlan(int dayOfWeek) {
         if (dayOfWeek >= 0 && dayOfWeek < 7) {
             System.out.println("Meal Plan for Day " + (dayOfWeek + 1) + ":");
@@ -43,6 +73,9 @@ public class MealPlanManager {
         }
     }
 
+    /**
+     * Displays the entire meal plan for the week
+     */
     public void printEntireMealPlan() {
 
         for (int i = 0; i < 7; i++) {
@@ -50,18 +83,5 @@ public class MealPlanManager {
             weeklyMealPlans[i].displayMealPlan();
         }
 
-    }
-
-    public static void main(String[] args) {
-        // MealPlanManager manager = new MealPlanManager();
-
-        // Adding and displaying food items for the first day
-        // manager.addFoodItem(0, new FoodItem("Chicken", 10.0, 250, 0, 30, 10, 0));
-        // manager.addFoodItem(0, new FoodItem("Rice", 2.0, 200, 45, 5, 1, 0);
-        // manager.displayMealPlan(0);
-
-        // Removing a food item from the first day
-        // manager.removeFoodItem(0, 0);
-        // manager.displayMealPlan(0);
     }
 }
