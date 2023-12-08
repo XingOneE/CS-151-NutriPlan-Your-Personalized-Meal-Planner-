@@ -82,3 +82,6 @@ JavaFX: Another option for building Java desktop applications with more modern f
 Database (Optional):
 
 If needed, Java provides JDBC for database connectivity with databases like MySQL or PostgreSQL. 
+
+
+![image](https://github.com/XingOneE/CS-151-NutriPlan-Your-Personalized-Meal-Planner-/assets/104655679/e032155d-517c-461c-a108-e4e66583018f)
