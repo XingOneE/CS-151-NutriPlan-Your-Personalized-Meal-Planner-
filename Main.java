@@ -1,77 +1,126 @@
+package package_a;
 
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class Main {
 
-	public static void printMenu() {
-		System.out.println("NUTRIPLAN OPTIONS MENU: ");
-		System.out.println();
-		System.out.println("1. Create a new meal plan");
-		System.out.println("2. View current meal plan");
-		System.out.println("3. Add meal to plan");
-		System.out.println("4. Credits");
-		System.out.println("5. Exit");
-		System.out.println();
-	}
+	
+	
+	
+	
+	
+	public static void main(String[] args)  throws FileNotFoundException 
+	{
+		// TODO Auto-generated method stub
 
-	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println("Welcome to Nutriplan!");
-		System.out.println("");
-		System.out.println("Here you can plan and organize your diet!");
-		System.out.println("");
-
-		Scanner scan = new Scanner(System.in); // used for all inputs
-
+		Scanner scan = new Scanner(System.in);		//used for all inputs
+		
+		String directory = System.getProperty("user.dir");
 		int option = 0;
-
+		
 		Nutriplan np = new Nutriplan();
-
-		while (option != 5) // mock-up menu
+		DataManager dm = new DataManager();
+		
+		
+		
+		
+		while(option != 5)													//mock-up menu
 		{
-			printMenu();
-
+			System.out.println("Welcome to Nutriplan \n");
+			
+			System.out.println("Type in the # of the option you wish to select: \n");
+			System.out.println("1) Create a new meal plan");
+			System.out.println("2) Read current meal plan");
+			System.out.println("3) View/Edit current meal plan");
+			System.out.println("4) Credits");
+			System.out.println("5) Exit");
+			
 			option = scan.nextInt();
-
-			switch (option) {
-				case 1: {
-					System.out.println("Creating new meal plan.");
+			
+			switch (option)
+			{
+				case 1:
+				{
+					System.out.println("Creating new meal plan");
 					np.newPersonalInfo(scan);
-
+					
+					np.mainMenu(scan, np);
+					
+					option = 5;
 					break;
 				}
-				case 2: {
-					System.out.println("Viewing current meal plan.");
-					np.printMealPlan();
-
+				case 2:
+				{
+					try
+					{
+						System.out.println("Reading current meal plan");
+						dm.loadFile(directory + "\\NutriplanData", np);
+						
+						for(int t = 0; t < 7; t++)
+						{
+							np.getMealPlanManager().displayMealPlan(t);
+						}
+					}
+					catch(Exception e)
+					{
+						System.out.println("File not found.");
+					}
+					
+					
+					//option = 5;
 					break;
 				}
-				case 3: {
-					System.out.println("Adding meal to plan.");
-					np.editMealPlan(scan);
-
+				case 3:
+				{
+					
+					
+					try
+					{
+						System.out.println("Edit current meal plan");
+						dm.loadFile(directory + "\\NutriplanData", np);
+						np.mainMenu(scan, np);
+					}
+					catch(Exception e)
+					{
+						System.out.println("File not found.");
+					}
+					
+					option = 5;
 					break;
 				}
-				case 4: {
+				case 4:
+				{
 					System.out.println("Credits");
 					np.credits();
-
+					
 					break;
 				}
-				case 5: {
-					System.out.println("Thank you for using Nutriplan! Ending program.");
+				case 5:
+				{
+					System.out.println("Shuting down...");
 					break;
 				}
 
+
 			}
-			System.out.println("Would you like to continue working on your meal plan? Y/N");
-			String continueOption = scan.next();
-			if (continueOption.toUpperCase().equals("N")) {
-				option = 5;
-			}
+			
+			
+			
+			
+			
+			
+			
 		}
+		
+		
+		
+		
+		
+		
+		
 		scan.close();
-
+		
 	}
 
 }

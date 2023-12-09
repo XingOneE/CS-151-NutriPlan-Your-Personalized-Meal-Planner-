@@ -1,37 +1,26 @@
+package package_a;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * The MealPlannerApp class is the main class for the Meal Planner Application.
- */
 public class MealPlannerApp {
-    /**
-     * The main method of the application.
-     *
-     * @param args Command line arguments (not used in this application).
-     */
-    public static void main(String[] args) {
-        // Run the GUI creation on the event dispatch thread
+    public static void main(String[] args) 
+    {
         SwingUtilities.invokeLater(() -> {
             createAndShowGUI();
         });
     }
 
-    /**
-     * Method to create and show the GUI.
-     */
-    private static void createAndShowGUI() {
-        // Create the main frame for the application
+    private static void createAndShowGUI() 
+    {
         JFrame frame = new JFrame("Meal Planner Application");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 
-        // Create the main panel with a BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
 
-        // Create buttons for various options
         JButton createPlanButton = new JButton("Create Meal Plan");
         JButton getPlanButton = new JButton("Get Meal Plan for the Day");
         JButton nutritionalInfoButton = new JButton("Nutritional Information");
@@ -39,7 +28,6 @@ public class MealPlannerApp {
         JButton setGoalButton = new JButton("Set Goal for Meal Plan");
         JButton exitButton = new JButton("Exit");
 
-        // ActionListener for the "Create Meal Plan" option
         createPlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +36,6 @@ public class MealPlannerApp {
             }
         });
 
-        // ActionListener for the "Get Meal Plan for the Day" option
         getPlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,7 +44,6 @@ public class MealPlannerApp {
             }
         });
 
-        // ActionListener for the "Nutritional Information" option
         nutritionalInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +52,6 @@ public class MealPlannerApp {
             }
         });
 
-        // ActionListener for the "View/Edit Meal Plan" option
         viewEditPlanButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +60,6 @@ public class MealPlannerApp {
             }
         });
 
-        // ActionListener for the "Set Goal for Meal Plan" option
         setGoalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,7 +68,6 @@ public class MealPlannerApp {
             }
         });
 
-        // ActionListener for the "Exit" option
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -93,20 +76,18 @@ public class MealPlannerApp {
             }
         });
 
-        // Add buttons to the main panel in BorderLayout positions
         mainPanel.add(createPlanButton, BorderLayout.NORTH);
         mainPanel.add(getPlanButton, BorderLayout.CENTER);
         mainPanel.add(nutritionalInfoButton, BorderLayout.SOUTH);
 
-        // Create a side panel with buttons and add it to the main panel
         JPanel sidePanel = new JPanel();
         sidePanel.setLayout(new BoxLayout(sidePanel, BoxLayout.Y_AXIS));
         sidePanel.add(viewEditPlanButton);
         sidePanel.add(setGoalButton);
         sidePanel.add(exitButton);
+
         mainPanel.add(sidePanel, BorderLayout.EAST);
 
-        // Add the main panel to the frame and make it visible
         frame.add(mainPanel);
         frame.setVisible(true);
     }
