@@ -1,3 +1,5 @@
+package package_a;
+
 public class FoodItem {
 
 	private String name;

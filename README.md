@@ -6,38 +6,34 @@ Vincent Nguyen,
 Xing Yu Luo,
 Aaron Nguyen,
 
-Team 5 
+Team 5
 
 1. Problem Statement: People are becoming more health-conscious and want to plan out their diet in a given week/month.
 
 2. Solution: Our program will allow the user to plan and customize their meals for a specified time of day. They will be able to create time sections such as for breakfast or lunch and add foods to those sections. They can calculate the calories and nutrition from the information they submit. The user may also implement a budget for their meal plan, and the program will tell the user if their meal plan at a given time exceeds that budget.
 
-3. Assumptions: 
-a. The proposal assumes the user has the nutritional information and the cost for the food that they eat.
-b. It assumes that the user is capable of inputting and managing the data for their meal plan.
-c. It assumes that the program will have features for saving and editing meal plans over time.
+3. Assumptions:
+   a. The proposal assumes the user has the nutritional information and the cost for the food that they eat.
+   b. It assumes that the user is capable of inputting and managing the data for their meal plan.
+   c. It assumes that the program will have features for saving and editing meal plans over time.
 
 4. The Features of our Meal Planner program:
-Organize and customize meals through the week/month
-Determine nutrition required for the user’s diet and health
-Manage their budget for the food they buy
-Keep track of the food they take in
-Recommend the user certain food/food plans based on their preferences
+   Organize and customize meals through the week/month
+   Determine nutrition required for the user’s diet and health
+   Manage their budget for the food they buy
+   Keep track of the food they take in
+   Recommend the user certain food/food plans based on their preferences
 
+5. Classes/methods we need for our program:
 
-
-5. Classes/methods we need for our program: 
-
-a. Main: 
+a. Main:
 MealPlanner: the class that holds all other classes
-
 
 b. OptionsMenu: the starting page to select the certain parts
 FileReader: used to read a file created to keep track of the user’s meal plan. New plans can be created and written and pre-existing plans can be read/deleted.
 readFile()
 SaveFile()
 deleteFile()
-
 
 c. NutritionCalculator: determine the nutrition intake
 calculateSugar()
@@ -64,12 +60,12 @@ Goal: the end goal that the user sets
 (Optional) User management: manage different meal plans for different users
 
 6. When using the Meal Planner program, the user will first go to OptionMenu. Here they can select a variety of options:
-Create meal plan,
-Get meal plan for the day,
-Nutritional Information,
-View/Edit Meal Plan,
-Set the Goal for the meal plan,   
-Exit
+   Create meal plan,
+   Get meal plan for the day,
+   Nutritional Information,
+   View/Edit Meal Plan,
+   Set the Goal for the meal plan,  
+   Exit
 
 7. Tech-stack: Programming Language
 
@@ -81,7 +77,8 @@ Java Swing: For creating a desktop-based user interface using Java.
 JavaFX: Another option for building Java desktop applications with more modern features.
 Database (Optional):
 
-If needed, Java provides JDBC for database connectivity with databases like MySQL or PostgreSQL. 
-
+If needed, Java provides JDBC for database connectivity with databases like MySQL or PostgreSQL.
 
 ![image](https://github.com/XingOneE/CS-151-NutriPlan-Your-Personalized-Meal-Planner-/assets/104655679/e032155d-517c-461c-a108-e4e66583018f)
+
+Google Slides Link: https://docs.google.com/presentation/d/1NuSyHXOrSjCjUeb5qH14tca6Hz6gGkR2bKdC-RJNVig/edit?usp=sharing
