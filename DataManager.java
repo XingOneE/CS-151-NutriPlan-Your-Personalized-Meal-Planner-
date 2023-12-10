@@ -1,53 +1,66 @@
 package package_a;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+/**
+ * The DataManager class is responsible for managing data, including saving,
+ * loading, and clearing Nutriplan objects to and from files.
+ */
 public class DataManager {
 
-	
-	DataManager()
-	{
-		
+	/**
+	 * Default constructor for the DataManager class.
+	 */
+	DataManager() {
+
 	}
-	
-	public void saveFile(Nutriplan profile) throws FileNotFoundException
-	{
-		//C:\Users\aweso\eclipse-workspace\Nutriplan_proto
+
+	/**
+	 * Saves the data from a Nutriplan object to a file.
+	 *
+	 * @param profile The Nutriplan object containing the data to be saved.
+	 * @throws FileNotFoundException If the specified file is not found.
+	 */
+	public void saveFile(Nutriplan profile) throws FileNotFoundException {
+		// Get the current working directory
 		String directory = System.getProperty("user.dir");
+
+		// Create a new File object representing a file named "NutriplanData" in the
+		// current directory
 		File newData = new File(directory + "\\NutriplanData");
-		
-		if(!newData.exists())
-		{
-			try 
-			{
+
+		// If the file doesn't exist, create a new file
+		if (!newData.exists()) {
+			try {
 				newData.createNewFile();
-			} 
-			catch (IOException e) 
-			{
-				System.out.println("An error has occured.");
+			} catch (IOException e) {
+				System.out.println("An error has occurred.");
 				e.printStackTrace();
 			}
 		}
-		
-		
+
+		// Create a PrintWriter to write data to the file
 		PrintWriter pen = new PrintWriter(newData);
-		
+
+		// Write personal information from the Nutriplan object to the file
 		pen.print(profile.getPersonalInfo().getName());
 		pen.print(" ");
 		pen.print(profile.getPersonalInfo().getHeight());
 		pen.print(" ");
 		pen.print(profile.getPersonalInfo().getWeight());
 		pen.print(" ");
-		
-		//allergies later
-		for(int m = 0; m < profile.getPersonalInfo().getAllergies().length; m++)
-		{
+
+		// Write allergies information from the Nutriplan object to the file
+		for (int m = 0; m < profile.getPersonalInfo().getAllergies().length; m++) {
 			pen.print(profile.getPersonalInfo().getAllergies()[m]);
 			pen.print(" ");
 		}
-		
+
+		// Write goal information from the Nutriplan object to the file
 		pen.print(profile.getPersonalInfo().budget);
 		pen.print(" ");
 		pen.print(profile.getPersonalInfo().calGoals);
@@ -60,20 +73,16 @@ public class DataManager {
 		pen.print(" ");
 		pen.print(profile.getPersonalInfo().sugGoals);
 		pen.print(" ");
-		
-		
-		
-		//loops through mealPlan array in MealPLanManager (total of 7)
-		for(int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++)
-		{
+
+		// Loop through mealPlan array in MealPlanManager (total of 7)
+		for (int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++) {
 			pen.print(profile.getMealPlanManager().getMealPlan()[i].dayBudget);
 			pen.print(" ");
-			
-			//loops through foods array in MealPlan (total of 10)
-			for(int j = 0; j < profile.getMealPlanManager().getMealPlan()[i].getFoods().length; j++)
-			{
+
+			// Loop through foods array in MealPlan (total of 10)
+			for (int j = 0; j < profile.getMealPlanManager().getMealPlan()[i].getFoods().length; j++) {
 				FoodItem food = profile.getMealPlanManager().getMealPlan()[i].getFoods()[j];
-				
+
 				pen.print(food.getName());
 				pen.print(" ");
 				pen.print(food.getPrice());
@@ -88,123 +97,110 @@ public class DataManager {
 				pen.print(" ");
 				pen.print(food.getSugar());
 				pen.print(" ");
-				
 			}
-			
-			
 		}
-		
-		
-		
-		
-		
-		
-		System.out.println("Save sucess.");
-		
 
+		// Print a success message to the console
+		System.out.println("Save success.");
+
+		// Close the PrintWriter and exit the program with a status code of 0
 		pen.close();
 		System.exit(0);
-		
 	}
-	
-	
-	public void loadFile(String saveFile, Nutriplan profile) throws FileNotFoundException
-	{
-		
-		File loadSave = new File(saveFile);		
-		Scanner pen = new Scanner(loadSave);	
-		
-		
+
+	/**
+	 * Loads data from a file into a Nutriplan object.
+	 *
+	 * @param saveFile The file path to load the data from.
+	 * @param profile  The Nutriplan object to load the data into.
+	 * @throws FileNotFoundException If the specified file is not found.
+	 */
+	public void loadFile(String saveFile, Nutriplan profile) throws FileNotFoundException {
+		// Create a File object based on the provided file path
+		File loadSave = new File(saveFile);
+
+		// Create a Scanner to read from the file
+		Scanner pen = new Scanner(loadSave);
+
+		// Read the first line of the file
 		String line = pen.nextLine();
+
+		// Create a Scanner to process the line
 		Scanner lineReader = new Scanner(line);
-		
+
+		// Set personal information in the Nutriplan object based on file data
 		profile.getPersonalInfo().setName(lineReader.next());
 		profile.getPersonalInfo().setHeight(lineReader.nextInt());
 		profile.getPersonalInfo().setWeight(lineReader.nextInt());
-		
-		for(int m = 0; m < profile.getPersonalInfo().getAllergies().length; m++)
-		{
+
+		// Set allergies information in the Nutriplan object based on file data
+		for (int m = 0; m < profile.getPersonalInfo().getAllergies().length; m++) {
 			profile.getPersonalInfo().addAllergies(lineReader.next());
 		}
-		
+
+		// Set goal information in the Nutriplan object based on file data
 		profile.getPersonalInfo().budget = lineReader.nextDouble();
 		profile.getPersonalInfo().calGoals = lineReader.nextDouble();
 		profile.getPersonalInfo().carbGoals = lineReader.nextDouble();
 		profile.getPersonalInfo().protGoals = lineReader.nextDouble();
 		profile.getPersonalInfo().fatGoals = lineReader.nextDouble();
 		profile.getPersonalInfo().sugGoals = lineReader.nextDouble();
-		
-		
-		//loops through mealPlan array in MealPLanManager (total of 7)
-				for(int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++)
-				{
-					profile.getMealPlanManager().getMealPlan()[i].dayBudget = lineReader.nextDouble();
-					
-					//loops through foods array in MealPlan (total of 10)
-					for(int j = 0; j < profile.getMealPlanManager().getMealPlan()[i].getFoods().length; j++)
-					{
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setName(lineReader.next());
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setPrice(lineReader.nextDouble());
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setCalories(lineReader.nextDouble());
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setCarbs(lineReader.nextDouble());
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setProtein(lineReader.nextDouble());
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setFat(lineReader.nextDouble());
-						profile.getMealPlanManager().getMealPlan()[i].getFoods()[j].setSugar(lineReader.nextDouble());
-						
-					}
-					
-					
-				}
-		
-		
-				System.out.println("Loading complete!");
-				lineReader.close();
-				pen.close();
+
+		// Loop through mealPlan array in MealPlanManager (total of 7)
+		for (int i = 0; i < profile.getMealPlanManager().getMealPlan().length; i++) {
+			// Set dayBudget in MealPlan based on file data
+			profile.getMealPlanManager().getMealPlan()[i].dayBudget = lineReader.nextDouble();
+
+			// Loop through foods array in MealPlan (total of 10)
+			for (int j = 0; j < profile.getMealPlanManager().getMealPlan()[i].getFoods().length; j++) {
+				FoodItem food = profile.getMealPlanManager().getMealPlan()[i].getFoods()[j];
+
+				// Set food-related information in the Nutriplan object based on file data
+				food.setName(lineReader.next());
+				food.setPrice(lineReader.nextDouble());
+				food.setCalories(lineReader.nextDouble());
+				food.setCarbs(lineReader.nextDouble());
+				food.setProtein(lineReader.nextDouble());
+				food.setFat(lineReader.nextDouble());
+				food.setSugar(lineReader.nextDouble());
+			}
+		}
+
+		// Print a loading complete message to the console
+		System.out.println("Loading complete!");
+
+		// Close the Scanners
+		lineReader.close();
+		pen.close();
 	}
-	
-	
-	public void clearFile(Nutriplan profile)
-	{
-		
+
+	/**
+	 * Clears the data in a Nutriplan object.
+	 *
+	 * @param profile The Nutriplan object to clear.
+	 */
+	public void clearFile(Nutriplan profile) {
+		// Create an empty Nutriplan object
 		Nutriplan empty = new Nutriplan();
+
+		// Set the provided Nutriplan object to the empty object
 		profile = empty;
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) throws FileNotFoundException 
-	{
-		// TODO Auto-generated method stub
-		
+
+	/**
+	 * The main method for testing the DataManager class.
+	 *
+	 * @param args Command line arguments (not used in this application).
+	 * @throws FileNotFoundException If the specified file is not found.
+	 */
+	public static void main(String[] args) throws FileNotFoundException {
+		// Create a Nutriplan object for testing
 		Nutriplan test = new Nutriplan();
-		
+
+		// Create a DataManager object
 		DataManager testSave = new DataManager();
-		
+
+		// Save the Nutriplan object to a file
 		testSave.saveFile(test);
-		
-		
-		
-		
-		
-		
-		
-
 	}
-	
-	
-	
-
 }
